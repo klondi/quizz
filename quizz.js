@@ -8,6 +8,7 @@ var ge = null;
 var tno = null;
 
 var player = null;
+var players = [{n:"Jugador 1",s:0},{n:"Jugador 2",s:0},{n:"Jugador 3",s:0},{n:"Jugador 4",s:0}];
 
 var wbind = null;
 var abind = null;
@@ -27,9 +28,22 @@ function unbind() {
     nbind = null;
 }
 
+function setscores() {
+    var p1s = document.getElementById("p1points");
+    var p2s = document.getElementById("p2points");
+    var p3s = document.getElementById("p3points");
+    var p4s = document.getElementById("p4points");
+    p1points.innerHTML = players[0].s;
+    p2points.innerHTML = players[1].s;
+    p3points.innerHTML = players[2].s;
+    p4points.innerHTML = players[3].s;
+}
+
 function right() {
     unbind();
-    tno.innerHTML= "El jugador "+player+" acertó";
+    tno.innerHTML= "El jugador "+players[player].n+" acertó";
+    players[player].s += 3;
+    setscores();
     q.classList.remove("singlequestion");
     a.classList.remove("hidden");
     qz.classList.add("rightanswer");
@@ -39,6 +53,8 @@ function right() {
 function wrong() {
     unbind();
     tno.innerHTML= "Nadie acertó";
+    players[player].s -= 2;
+    setscores();
     q.classList.remove("singlequestion");
     a.classList.remove("hidden");
     qz.classList.add("wronganswer");
@@ -46,25 +62,25 @@ function wrong() {
 }
 
 function p1() {
-    playerbutton(1);
+    playerbutton(0);
 }
 
 function p2() {
-    playerbutton(2);
+    playerbutton(1);
 }
 
 function p3() {
-    playerbutton(3);
+    playerbutton(2);
 }
 
 function p4() {
-    playerbutton(4);
+    playerbutton(3);
 }
 
 function playerbutton(i) {
     unbind();
     player = i;
-    tno.innerHTML= "El jugador "+i+" pulsó el botón";
+    tno.innerHTML= "El jugador "+players[player].n+" pulsó el botón";
     obind = right;
     fbind = wrong;
     rbind = rebound;
@@ -73,6 +89,8 @@ function playerbutton(i) {
 function rebound() {
     unbind();
     tno.innerHTML= "Rebote";
+    players[player].s -= 2;
+    setscores();
     wbind = p1;
     abind = p2;
     sbind = p3;
