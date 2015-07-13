@@ -6,6 +6,10 @@ var ai = null;
 var qz = null;
 var ge = null;
 var tno = null;
+var p1s = null;
+var p2s = null;
+var p3s = null;
+var p4s = null;
 
 var player = null;
 var players = [{n:"Jugador 1",s:0},{n:"Jugador 2",s:0},{n:"Jugador 3",s:0},{n:"Jugador 4",s:0}];
@@ -15,6 +19,7 @@ var abind = null;
 var sbind = null;
 var dbind = null;
 var obind = null;
+var fbind = null;
 var rbind = null;
 var nbind = null;
 
@@ -24,19 +29,16 @@ function unbind() {
     sbind = null;
     dbind = null;
     obind = null;
+    fbind = null;
     rbind = null;
     nbind = null;
 }
 
 function setscores() {
-    var p1s = document.getElementById("p1points");
-    var p2s = document.getElementById("p2points");
-    var p3s = document.getElementById("p3points");
-    var p4s = document.getElementById("p4points");
-    p1points.innerHTML = players[0].s;
-    p2points.innerHTML = players[1].s;
-    p3points.innerHTML = players[2].s;
-    p4points.innerHTML = players[3].s;
+    p1s.innerHTML = players[0].s;
+    p2s.innerHTML = players[1].s;
+    p3s.innerHTML = players[2].s;
+    p4s.innerHTML = players[3].s;
 }
 
 function right() {
@@ -130,6 +132,11 @@ function go() {
     qz = document.getElementById("quizz");
     ge = document.getElementById("gameover");
     tno = document.getElementById("turno");
+    p1s = document.getElementById("p1points");
+    p2s = document.getElementById("p2points");
+    p3s = document.getElementById("p3points");
+    p4s = document.getElementById("p4points");
+
     i.classList.remove("hidden");
     nbind = first;
     document.onkeydown = function(e) {
