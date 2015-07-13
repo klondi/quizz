@@ -1,0 +1,51 @@
+#quizz {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+#question {
+	height: 50%;
+	width: 100%;
+}
+#answer {
+	height: 50%;
+	width: 100%;
+}
+
+.flex {
+	display: flex;
+	justify-content: center;
+}
+
+.inner {
+	align-self: center;
+}
+
+.singlequestion {
+	height: 100% !important;
+	width: 100% !important;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.rightanswer {
+	background-color: green;
+}
+
+.wronganswer {
+	background-color: red;
+}
+
+#intro {
+	height: 100%;
+	width: 100%;
+}
+
+#gameover {
+	height: 100%;
+	width: 100%;
+}
