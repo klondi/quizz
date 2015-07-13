@@ -12,3 +12,5 @@ w will say player 1 knows the answer
 a will say player 2 knows the answer
 s will say player 3 knows the answer
 d will say player 4 knows the answer
+
+All this code is licensed uder Affero GPL v3.0 or at your choice any higher version
