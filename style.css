@@ -6,6 +6,9 @@
     flex-direction: column;
     top: 0;
     left: 0;
+    background-color: black;
+    color: white;
+    font-size: 250%;
 }
 
 #infopanel {
@@ -19,6 +22,7 @@
 
 #turno {
     text-align: center;
+    color: #cccccc;
 }
 
 #quizzdata {
@@ -54,11 +58,11 @@
 }
 
 .rightanswer {
-    background-color: green;
+    background-color: #050 !important;
 }
 
 .wronganswer {
-    background-color: red;
+    background-color: #700 !important;
 }
 
 #intro {
