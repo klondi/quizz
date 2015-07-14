@@ -10,6 +10,10 @@ var p1s = null;
 var p2s = null;
 var p3s = null;
 var p4s = null;
+var pa = null;
+var sa = null;
+var fa = null;
+var ra = null;
 
 var player = null;
 var players = [{n:"Jugador 1",s:0},{n:"Jugador 2",s:0},{n:"Jugador 3",s:0},{n:"Jugador 4",s:0}];
@@ -49,6 +53,7 @@ function right() {
     q.classList.remove("singlequestion");
     a.classList.remove("hidden");
     qz.classList.add("rightanswer");
+    sa.play();
     nbind = next;
 }
 
@@ -60,7 +65,8 @@ function wrong() {
     q.classList.remove("singlequestion");
     a.classList.remove("hidden");
     qz.classList.add("wronganswer");
-    nbind = next;
+    fa.play();
+   nbind = next;
 }
 
 function p1() {
@@ -83,6 +89,7 @@ function playerbutton(i) {
     unbind();
     player = i;
     tno.innerHTML= "El jugador "+players[player].n+" pulsó el botón";
+    pa[player].play();
     obind = right;
     fbind = wrong;
     rbind = rebound;
@@ -93,6 +100,7 @@ function rebound() {
     tno.innerHTML= "Rebote";
     players[player].s -= 2;
     setscores();
+    ra.play();
     wbind = p1;
     abind = p2;
     sbind = p3;
@@ -136,6 +144,14 @@ function go() {
     p2s = document.getElementById("p2points");
     p3s = document.getElementById("p3points");
     p4s = document.getElementById("p4points");
+    pa = [
+        document.getElementById("player1sound"),
+        document.getElementById("player2sound"),
+        document.getElementById("player3sound"),
+        document.getElementById("player4sound")];
+    sa = document.getElementById("successsound");
+    fa = document.getElementById("failuresound");
+    ra = document.getElementById("reboundsound");
 
     i.classList.remove("hidden");
     nbind = first;
